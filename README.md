@@ -33,4 +33,5 @@ pip install flask numpy==1.26.4 pandas==2.2.2 joblib==1.4.2 scikit-learn==1.5.2 
 
 # 5. Run the Flask application
 python app.py
-# our website will be accessible at https://diabetes-prediction-college-project.onrender.com/
+# our website will be accessible at:
+  https://diabetes-prediction-college-project.onrender.com/
