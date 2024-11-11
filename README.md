@@ -1,6 +1,6 @@
 # Diabetes Prediction Website
 
-This web application is built using **Flask**, **HTML**, and a **Machine Learning Model** to predict whether a user is at risk of having diabetes. The user can input their health information, and the website will display a prediction based on a trained machine learning model.
+This web application is built using **Flask**, **HTML**, **CSS**, **JS**, and a **Machine Learning Model** to predict whether a user is at risk of having diabetes. The user can input their health information, and the website will display a prediction based on a trained machine learning model.
 
 ## Features
 
