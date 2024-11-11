@@ -1,0 +1,327 @@
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+/* .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(60, 60, 60, 0.1);
+    padding: 30px;
+    margin-top: 50px;
+    max-width: 600px;
+  }  */
+
+.container {
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(60, 60, 60, 0.7);
+  padding: 30px;
+  margin-top: 50px;
+  max-width: 660px;
+  position: relative;
+  border: 7px solid transparent; /* Create space for the border */
+  background-clip: padding-box; /* Ensure the background doesn't overlap the border */
+  border-image: linear-gradient(
+      45deg,
+      #ff0000,
+      #ffa500,
+      #ffff00,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #ee82ee
+    )
+    1; /* Gradient border */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  } */
+
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(227, 16, 16, 0.717);
+  --animation-color: #37ff8b;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.2s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 30px #1f4c65;
+  /* -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
+}
+
+.btn:active {
+  scale: 0.92;
+}
+
+.btn:hover {
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    rgba(2, 29, 78, 0.681) 0%,
+    rgba(31, 215, 232, 0.873) 60%
+  );
+  color: rgb(4, 4, 38);
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .btn-primary {
+    font-size: 1rem;
+  }
+}
+/* button */
+
+.ezy__faq3_AcAdfrU9 {
+  /* Bootstrap variables */
+  --bs-body-color: #28303b;
+  --bs-body-bg: rgb(255, 255, 255);
+
+  /* Easy Frontend variables */
+  --ezy-theme-color: rgb(13, 110, 253);
+  --ezy-theme-color-rgb: 13, 110, 253;
+  --ezy-item-bg: #ffffff;
+  --ezy-item-shadow: 0px 4px 44px rgba(159, 190, 218, 0.37);
+
+  background-color: var(--bs-body-bg);
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .ezy__faq3_AcAdfrU9 {
+    padding: 100px 0;
+  }
+}
+
+/* Gray Block Style */
+.gray .ezy__faq3_AcAdfrU9,
+.ezy__faq3_AcAdfrU9.gray {
+  --bs-body-bg: rgb(246, 246, 246);
+}
+
+/* Dark Gray Block Style */
+.dark-gray .ezy__faq3_AcAdfrU9,
+.ezy__faq3_AcAdfrU9.dark-gray {
+  --bs-body-color: #ffffff;
+  --bs-body-bg: rgb(30, 39, 53);
+  --ezy-item-bg: rgb(11, 23, 39);
+  --ezy-item-shadow: 0px 4px 44px rgba(0, 0, 0, 0.47);
+}
+
+/* Dark Block Style */
+.dark .ezy__faq3_AcAdfrU9,
+.ezy__faq3_AcAdfrU9.dark {
+  --bs-body-color: #ffffff;
+  --bs-body-bg: rgb(11, 23, 39);
+  --ezy-item-bg: rgb(30, 39, 53);
+  --ezy-item-shadow: 0px 4px 44px rgba(0, 0, 0, 0.47);
+}
+
+/* FAQ Heading Styles */
+.ezy__faq3_AcAdfrU9-heading {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 25px;
+  color: var(--bs-body-color);
+}
+
+@media (min-width: 768px) {
+  .ezy__faq3_AcAdfrU9-heading {
+    font-size: 45px;
+    line-height: 45px;
+  }
+}
+
+.ezy__faq3_AcAdfrU9-sub-heading {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--bs-body-color);
+}
+
+.ezy__faq3_AcAdfrU9-item {
+  background-color: transparent;
+  border-radius: 10px;
+  color: var(--bs-body-color);
+}
+
+/* From Uiverse.io by TahaShameli */
+
+.switch {
+  font-size: 17px;
+  position: fixed; /* Makes it stay at the top-right even when scrolling */
+  top: 20px; /* Adjust distance from the top */
+  right: 20px; /* Adjust distance from the right */
+  z-index: 1000; /* Ensures it's above other content */
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: #fff000;
+  transform: rotate(360deg) translateX(0);
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider .circle {
+  transform: rotate(0deg) translateX(1.5em) !important;
+}
+
+.switch input:checked + .slider .circle .shine {
+  transform: translate(0%, 0%) !important;
+}
+
+.switch input:checked + .slider .circle .moon {
+  left: -10%;
+  opacity: 1;
+  transform: translateY(-60%);
+}
+
+.moon {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  opacity: 0;
+  background-color: #333;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 99999px;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+}
+
+.shine {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #fff000;
+  border-radius: 1rem;
+  transition: all 0.4s;
+}
+
+.shine-1 {
+  transform: translate(-50%, -375%);
+}
+.shine-2 {
+  transform: translate(175%, -275%);
+}
+.shine-3 {
+  transform: translate(275%, -50%);
+}
+.shine-4 {
+  transform: translate(175%, 175%);
+}
+.shine-5 {
+  transform: translate(-50%, 275%);
+}
+.shine-6 {
+  transform: translate(-275%, 175%);
+}
+.shine-7 {
+  transform: translate(-375%, -50%);
+}
+.shine-8 {
+  transform: translate(-275%, -275%);
+}
+
+body.dark-mode {
+  background-color: #181818;
+  color: #0c0c0c;
+}
+
+body.dark-mode.container {
+  background-color: #181818;
+  color: #ffffff;
+}
