@@ -6,316 +6,355 @@
     <title>Diabetes Prediction Form</title>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    
-    
     <div class="bodyy">
-    <div class="container mt-5"> 
-      <div class="button" data-text="Awesome">
-        <span class="actual-text">&nbsp;Diabetes Prediction Form&nbsp;</span>
-        <span aria-hidden="true" class="hover-text">&nbsp;Diabetes Prediction Form&nbsp;</span>
+      <div class="container mt-5">
+        <div class="button" data-text="Awesome">
+          <span class="actual-text">&nbsp;Diabetes Prediction Form&nbsp;</span>
+          <span aria-hidden="true" class="hover-text"
+            >&nbsp;Diabetes Prediction Form&nbsp;</span
+          >
+        </div>
+        <form method="POST" action="{{ url_for('predict') }}">
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              name="age"
+              min="0"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select class="form-control" id="gender" name="gender" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="polyuria">Polyuria (Frequent Urination):</label>
+            <select class="form-control" id="polyuria" name="polyuria" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="polydipsia">Polydipsia (Excessive Thirst):</label>
+            <select
+              class="form-control"
+              id="polydipsia"
+              name="polydipsia"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sudden_weight_loss">Sudden Weight Loss:</label>
+            <select
+              class="form-control"
+              id="sudden_weight_loss"
+              name="sudden_weight_loss"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="weakness">Weakness:</label>
+            <select class="form-control" id="weakness" name="weakness" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="polyphagia">Polyphagia (Excessive Hunger):</label>
+            <select
+              class="form-control"
+              id="polyphagia"
+              name="polyphagia"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="genital_thrush">Genital Thrush:</label>
+            <select
+              class="form-control"
+              id="genital_thrush"
+              name="genital_thrush"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="visual_blurring">Visual Blurring:</label>
+            <select
+              class="form-control"
+              id="visual_blurring"
+              name="visual_blurring"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="itching">Itching:</label>
+            <select class="form-control" id="itching" name="itching" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="irritability">Irritability:</label>
+            <select
+              class="form-control"
+              id="irritability"
+              name="irritability"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="delayed_healing">Delayed Healing:</label>
+            <select
+              class="form-control"
+              id="delayed_healing"
+              name="delayed_healing"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="partial_paresis">Partial Paresis:</label>
+            <select
+              class="form-control"
+              id="partial_paresis"
+              name="partial_paresis"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="muscle_stiffness">Muscle Stiffness:</label>
+            <select
+              class="form-control"
+              id="muscle_stiffness"
+              name="muscle_stiffness"
+              required
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="alopecia">Alopecia (Hair Loss):</label>
+            <select class="form-control" id="alopecia" name="alopecia" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="obesity">Obesity:</label>
+            <select class="form-control" id="obesity" name="obesity" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
-      <form method="POST" action="{{ url_for('predict') }}">
-        <div class="form-group">
-          <label for="age">Age:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="age"
-            name="age"
-            min="0"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="gender">Gender:</label>
-          <select class="form-control" id="gender" name="gender" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="polyuria">Polyuria (Frequent Urination):</label>
-          <select class="form-control" id="polyuria" name="polyuria" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="polydipsia">Polydipsia (Excessive Thirst):</label>
-          <select
-            class="form-control"
-            id="polydipsia"
-            name="polydipsia"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="sudden_weight_loss">Sudden Weight Loss:</label>
-          <select
-            class="form-control"
-            id="sudden_weight_loss"
-            name="sudden_weight_loss"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="weakness">Weakness:</label>
-          <select class="form-control" id="weakness" name="weakness" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="polyphagia">Polyphagia (Excessive Hunger):</label>
-          <select
-            class="form-control"
-            id="polyphagia"
-            name="polyphagia"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="genital_thrush">Genital Thrush:</label>
-          <select
-            class="form-control"
-            id="genital_thrush"
-            name="genital_thrush"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="visual_blurring">Visual Blurring:</label>
-          <select
-            class="form-control"
-            id="visual_blurring"
-            name="visual_blurring"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="itching">Itching:</label>
-          <select class="form-control" id="itching" name="itching" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="irritability">Irritability:</label>
-          <select
-            class="form-control"
-            id="irritability"
-            name="irritability"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="delayed_healing">Delayed Healing:</label>
-          <select
-            class="form-control"
-            id="delayed_healing"
-            name="delayed_healing"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="partial_paresis">Partial Paresis:</label>
-          <select
-            class="form-control"
-            id="partial_paresis"
-            name="partial_paresis"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="muscle_stiffness">Muscle Stiffness:</label>
-          <select
-            class="form-control"
-            id="muscle_stiffness"
-            name="muscle_stiffness"
-            required
-          >
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="alopecia">Alopecia (Hair Loss):</label>
-          <select class="form-control" id="alopecia" name="alopecia" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="obesity">Obesity:</label>
-          <select class="form-control" id="obesity" name="obesity" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
 
-    <section class="ezy__faq3_AcAdfrU9">
-      <div class="container">
-        <div class="row justify-content-center mb-md-4">
-          <div class="col-lg-8 col-xl-7 text-center">
-            <h2 class="ezy__faq3_AcAdfrU9-heading mb-3">Frequently Asked Questions</h2>
-            <p class="ezy__faq3_AcAdfrU9-sub-heading mb-0">
-              <mark>Got any doubts? May be this can help you!</mark>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-1" role="button" aria-expanded="true"
-                aria-controls="ezy-faq3-collapse-1">
-                <span>What is Easy Frontend?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse show" id="ezy-faq3-collapse-1">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-2" role="button" aria-expanded="false"
-                aria-controls="ezy-faq3-collapse-2">
-                <span>Who is Easy Frontend for?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse" id="ezy-faq3-collapse-2">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-3" role="button" aria-expanded="false"
-                aria-controls="ezy-faq3-collapse-3">
-                <span>How does Easy Frontend work?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse" id="ezy-faq3-collapse-3">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
-                </div>
-              </div>
+      <section class="ezy__faq3_AcAdfrU9">
+        <div class="container">
+          <div class="row justify-content-center mb-md-4">
+            <div class="col-lg-8 col-xl-7 text-center">
+              <h2 class="ezy__faq3_AcAdfrU9-heading mb-3">
+                Frequently Asked Questions
+              </h2>
+              <p class="ezy__faq3_AcAdfrU9-sub-heading mb-0">
+                <mark>Got any doubts? May be this can help you!</mark>
+              </p>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-4" role="button" aria-expanded="false"
-                aria-controls="ezy-faq3-collapse-4">
-                <span>How often does your team upload resources?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse" id="ezy-faq3-collapse-4">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-1"
+                  role="button"
+                  aria-expanded="true"
+                  aria-controls="ezy-faq3-collapse-1"
+                >
+                  <span>What is Easy Frontend?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse show" id="ezy-faq3-collapse-1">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-2"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq3-collapse-2"
+                >
+                  <span>Who is Easy Frontend for?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse" id="ezy-faq3-collapse-2">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-3"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq3-collapse-3"
+                >
+                  <span>How does Easy Frontend work?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse" id="ezy-faq3-collapse-3">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-5" role="button" aria-expanded="false"
-                aria-controls="ezy-faq3-collapse-5">
-                <span>Can I get a refund if I cancel my subscription?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse" id="ezy-faq3-collapse-5">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
+            <div class="col-md-6">
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-4"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq3-collapse-4"
+                >
+                  <span>How often does your team upload resources?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse" id="ezy-faq3-collapse-4">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="ezy__faq3_AcAdfrU9-item mt-4">
-              <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
-                data-bs-toggle="collapse" href="#ezy-faq3-collapse-6" role="button" aria-expanded="false"
-                aria-controls="ezy-faq3-collapse-6">
-                <span>Can I use Easy Frontend designs in my portfolio?</span>
-                <span class="fas fa-minus"></span>
-                <span class="fas fa-plus"></span>
-              </a>
-              <div class="collapse" id="ezy-faq3-collapse-6">
-                <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
-                  <p class="opacity-50 mb-0">
-                    When it comes to booking a holiday, we know everyone likes something different - so we've designed
-                    our getaways with you in mind.
-                  </p>
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-5"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq3-collapse-5"
+                >
+                  <span>Can I get a refund if I cancel my subscription?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse" id="ezy-faq3-collapse-5">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- <div class="ezy__faq3_AcAdfrU9-item mt-4">
+              <div class="ezy__faq3_AcAdfrU9-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq3-collapse-6"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq3-collapse-6"
+                >
+                  <span>Can I use Easy Frontend designs in my portfolio?</span>
+                  <span class="fas fa-minus"></span>
+                  <span class="fas fa-plus"></span>
+                </a>
+                <div class="collapse" id="ezy-faq3-collapse-6">
+                  <div class="ezy__faq3_AcAdfrU9-content p-3 p-lg-4">
+                    <p class="opacity-50 mb-0">
+                      When it comes to booking a holiday, we know everyone likes
+                      something different - so we've designed our getaways with
+                      you in mind.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="ezy__faq3_AcAdfrU9-item mt-4">
               <a class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center ezy__faq3_AcAdfrU9-btn-collapse"
                 data-bs-toggle="collapse" href="#ezy-faq3-collapse-7" role="button" aria-expanded="false"
                 aria-controls="ezy-faq3-collapse-7">
@@ -332,80 +371,84 @@
                 </div>
               </div>
             </div> -->
+            </div>
           </div>
         </div>
-      </div>
-    </section> 
+      </section>
 
-    <script>
-      document.querySelectorAll('.ezy__faq3_AcAdfrU9-btn-collapse').forEach(button => {
-        button.addEventListener('click', event => {
-          event.preventDefault(); // Prevent default link behavior
-          const isExpanded = button.getAttribute('aria-expanded') === 'true';
-    
-          // Toggle aria-expanded attribute
-          button.setAttribute('aria-expanded', !isExpanded);
-    
-          // Show or hide collapse content
-          const content = document.querySelector(button.getAttribute('href'));
-          content.classList.toggle('show');
-    
-          // Toggle the icons
-          const plusIcon = button.querySelector('.fa-plus');
-          const minusIcon = button.querySelector('.fa-minus');
-          plusIcon.style.display = isExpanded ? 'inline-block' : 'none';
-          minusIcon.style.display = isExpanded ? 'none' : 'inline-block';
-        });
-      });
-    </script>
-     
-     <!-- dark mode toggle -->
+      <script>
+        document
+          .querySelectorAll(".ezy__faq3_AcAdfrU9-btn-collapse")
+          .forEach((button) => {
+            button.addEventListener("click", (event) => {
+              event.preventDefault(); // Prevent default link behavior
+              const isExpanded =
+                button.getAttribute("aria-expanded") === "true";
 
-    <label class="switch">
-      <input type="checkbox" />
-      <span class="slider">
-        <span class="circle">
-          <span class="shine shine-1"></span>
-          <span class="shine shine-2"></span>
-          <span class="shine shine-3"></span>
-          <span class="shine shine-4"></span>
-          <span class="shine shine-5"></span>
-          <span class="shine shine-6"></span>
-          <span class="shine shine-7"></span>
-          <span class="shine shine-8"></span>
-          <span class="moon"></span>
+              // Toggle aria-expanded attribute
+              button.setAttribute("aria-expanded", !isExpanded);
+
+              // Show or hide collapse content
+              const content = document.querySelector(
+                button.getAttribute("href")
+              );
+              content.classList.toggle("show");
+
+              // Toggle the icons
+              const plusIcon = button.querySelector(".fa-plus");
+              const minusIcon = button.querySelector(".fa-minus");
+              plusIcon.style.display = isExpanded ? "inline-block" : "none";
+              minusIcon.style.display = isExpanded ? "none" : "inline-block";
+            });
+          });
+      </script>
+
+      <!-- dark mode toggle -->
+
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider">
+          <span class="circle">
+            <span class="shine shine-1"></span>
+            <span class="shine shine-2"></span>
+            <span class="shine shine-3"></span>
+            <span class="shine shine-4"></span>
+            <span class="shine shine-5"></span>
+            <span class="shine shine-6"></span>
+            <span class="shine shine-7"></span>
+            <span class="shine shine-8"></span>
+            <span class="moon"></span>
+          </span>
         </span>
-      </span>
-    </label>
-    
-    <script>
-      const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
-      function toggleDarkMode() {
-        if (toggleSwitch.checked) {
-          document.body.classList.add('dark-mode'); // Add dark mode class
-          localStorage.setItem('theme', 'dark');    // Save preference in local storage
-        } else {
-          document.body.classList.remove('dark-mode'); // Remove dark mode class
-          localStorage.setItem('theme', 'light');      // Save preference in local storage
+      </label>
+
+      <script>
+        const toggleSwitch = document.querySelector(
+          '.switch input[type="checkbox"]'
+        );
+        function toggleDarkMode() {
+          if (toggleSwitch.checked) {
+            document.body.classList.add("dark-mode"); // Add dark mode class
+            localStorage.setItem("theme", "dark"); // Save preference in local storage
+          } else {
+            document.body.classList.remove("dark-mode"); // Remove dark mode class
+            localStorage.setItem("theme", "light"); // Save preference in local storage
+          }
         }
-      }
-      // Function to toggle dark mode
+        // Function to toggle dark mode
 
+        // Event listener for the toggle switch
+        toggleSwitch.addEventListener("change", toggleDarkMode);
 
-      // Event listener for the toggle switch
-      toggleSwitch.addEventListener('change', toggleDarkMode);
-
-      // Load theme from local storage on page load
-      window.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          toggleSwitch.checked = true;
-          document.body.classList.add('dark-mode');
-        }
-      });
-    </script>
-
-
-  </div>
+        // Load theme from local storage on page load
+        window.addEventListener("DOMContentLoaded", () => {
+          const savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "dark") {
+            toggleSwitch.checked = true;
+            document.body.classList.add("dark-mode");
+          }
+        });
+      </script>
+    </div>
   </body>
 </html>

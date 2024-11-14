@@ -9,13 +9,16 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <style>
+      /* Base styling */
       body {
         background-color: #f8f9fa;
         font-family: Arial, sans-serif;
         color: #343a40;
         margin: 0;
         padding: 0;
+        transition: background-color 0.3s, color 0.3s;
       }
+
       .container {
         background-color: #fff;
         border-radius: 8px;
@@ -23,17 +26,21 @@
         padding: 30px;
         margin-top: 50px;
         max-width: 600px;
+        transition: background-color 0.3s, color 0.3s;
       }
+
       h1 {
         font-size: 2.5rem;
         margin-bottom: 20px;
         color: #007bff;
       }
+
       h2 {
         font-size: 1.8rem;
         margin-bottom: 30px;
         color: #28a745;
       }
+
       .btn-primary {
         background-color: #007bff;
         border-color: #007bff;
@@ -41,10 +48,12 @@
         font-size: 1.1rem;
         border-radius: 5px;
       }
+
       .btn-primary:hover {
         background-color: #0056b3;
         border-color: #0056b3;
       }
+
       @media (max-width: 576px) {
         h1 {
           font-size: 2rem;
@@ -53,15 +62,121 @@
           font-size: 1.5rem;
         }
       }
+
+      /* Dark mode styling */
+      body.dark-mode {
+        background-color: #181818;
+        color: #ffffff;
+      }
+
+      .container.dark-mode {
+        background-color: #333;
+        color: #ffffff;
+      }
+
+      /* Dark Mode Toggle Switch */
+      .switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .switch input {
+        display: none;
+      }
+
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        border-radius: 15px;
+        transition: background-color 0.4s;
+      }
+
+      .slider::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: transform 0.4s;
+      }
+
+      input:checked + .slider::before {
+        transform: translateX(30px);
+      }
+
+      input:checked + .slider {
+        background-color: #007bff;
+      }
     </style>
   </head>
   <body>
+    <!-- Dark Mode Toggle Switch -->
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle" />
+      <span class="slider">
+        <span class="circle">
+          <span class="shine shine-1"></span>
+          <span class="shine shine-2"></span>
+          <span class="shine shine-3"></span>
+          <span class="shine shine-4"></span>
+          <span class="shine shine-5"></span>
+          <span class="shine shine-6"></span>
+          <span class="shine shine-7"></span>
+          <span class="shine shine-8"></span>
+          <span class="moon"></span>
+        </span>
+      </span>
+    </label>
+
     <div class="container mt-5">
       <h1 class="text-center">Diabetes Result</h1>
-      <h2 class="text-center">You are:{{ prediction }}</h2>
+      <h2 class="text-center">You are: {{ prediction }}</h2>
       <div class="text-center mt-4">
         <a href="{{ url_for('home') }}" class="btn btn-primary">Go Back</a>
       </div>
     </div>
+
+    <!-- JavaScript for Toggle Functionality and Local Storage -->
+    <script>
+      // Reference to the theme toggle switch
+      const toggleSwitch = document.getElementById("theme-toggle");
+
+      // Function to apply dark mode
+      function applyDarkMode(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+        document
+          .querySelector(".container")
+          .classList.toggle("dark-mode", isDark);
+      }
+
+      // Function to toggle dark mode based on the switch state
+      function toggleDarkMode() {
+        const isDark = toggleSwitch.checked;
+        applyDarkMode(isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+
+      // Event listener for the toggle switch
+      toggleSwitch.addEventListener("change", toggleDarkMode);
+
+      // Load theme from local storage on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") === "dark";
+        toggleSwitch.checked = savedTheme;
+        applyDarkMode(savedTheme);
+      });
+    </script>
   </body>
 </html>
