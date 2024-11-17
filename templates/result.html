@@ -9,9 +9,8 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <style>
-      /* Base styling */
       body {
-        background-color: #f8f9fa;
+        background-color: #ffffff;
         font-family: Arial, sans-serif;
         color: #343a40;
         margin: 0;
@@ -21,124 +20,296 @@
 
       .container {
         background-color: #fff;
+        color: #333;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        margin-top: 50px;
-        max-width: 600px;
+        box-shadow: 0 2px 10px rgba(60, 60, 60, 0.7);
+        padding: 20px;
+        width: 410px; /* Fixed width */
+        height: 250px; /* Fixed height */
+        box-sizing: border-box; /* Ensure consistent sizing */
+        margin: 50px auto; /* Center the container */
+        border: 3px solid #e0e0e0;
         transition: background-color 0.3s, color 0.3s;
       }
 
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #007bff;
+      /* button styling */
+      .button {
+        margin: 0;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        --border-right: 6px;
+        --text-stroke-color: rgba(227, 16, 16, 0.717);
+        --animation-color: #37ff8b;
+        --fs-size: 2em;
+        letter-spacing: 3px;
+        text-decoration: none;
+        font-size: var(--fs-size);
+        font-family: "Arial";
+        position: relative;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--text-stroke-color);
+      }
+      /* this is the text, when you hover on button */
+      .hover-text {
+        position: absolute;
+        box-sizing: border-box;
+        content: attr(data-text);
+        color: var(--animation-color);
+        width: 0%;
+        inset: 0;
+        border-right: var(--border-right) solid var(--animation-color);
+        overflow: hidden;
+        transition: 0.2s;
+        -webkit-text-stroke: 1px var(--animation-color);
+      }
+      /* hover */
+      .button:hover .hover-text {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color));
       }
 
-      h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-        color: #28a745;
+      .form-group label {
+        font-weight: bold;
       }
 
       .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        padding: 10px 20px;
-        font-size: 1.1rem;
-        border-radius: 5px;
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+        border: none;
+        outline: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: rgb(14, 14, 26);
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        transition: 0.6s;
+        box-shadow: 0px 0px 30px #1f4c65;
+        /* -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
+      }
+
+      .btn-primary:active {
+        scale: 0.92;
       }
 
       .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
+        background: rgb(2, 29, 78);
+        background: linear-gradient(
+          270deg,
+          rgba(2, 29, 78, 0.681) 0%,
+          rgba(31, 215, 232, 0.873) 60%
+        );
+        color: rgb(4, 4, 38);
       }
 
       @media (max-width: 576px) {
         h1 {
           font-size: 2rem;
         }
-        h2 {
-          font-size: 1.5rem;
+        .btn-primary {
+          font-size: 1rem;
         }
       }
 
-      /* Dark mode styling */
       body.dark-mode {
         background-color: #181818;
-        color: #ffffff;
+        color: #f1f1f1;
       }
 
-      .container.dark-mode {
+      /* body.dark-mode .footer{
+  background-color: #a39f9f;
+} */
+
+      body.dark-mode .container {
         background-color: #333;
         color: #ffffff;
+        border: 4px solid;
+        border-image: linear-gradient(
+            45deg,
+            #ff0000,
+            #ffa500,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #ee82ee
+          )
+          1;
+        animation: borderAnimation 0.7s linear infinite;
       }
 
-      /* Dark Mode Toggle Switch */
+      @keyframes borderAnimation {
+        0% {
+          border-image-source: linear-gradient(
+            45deg,
+            #ff0000,
+            #ffa500,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #ee82ee
+          );
+        }
+        100% {
+          border-image-source: linear-gradient(
+            405deg,
+            #ee82ee,
+            #4b0082,
+            #0000ff,
+            #00ff00,
+            #ffff00,
+            #ffa500,
+            #ff0000
+          );
+        }
+      }
+
       .switch {
-        position: fixed;
+        font-size: 17px;
+        position: absolute;
         top: 20px;
         right: 20px;
-        width: 60px;
-        height: 30px;
-        background-color: #ccc;
-        border-radius: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        z-index: 1000;
+        display: inline-block;
+        width: 3.5em;
+        height: 2em;
       }
 
       .switch input {
-        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
       }
 
       .slider {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-color: #333;
-        border-radius: 15px;
-        transition: background-color 0.4s;
-      }
-
-      .slider::before {
-        content: "";
         position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #fff;
-        transition: transform 0.4s;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #333;
+        transition: 0.4s;
+        border-radius: 30px;
+        overflow: hidden;
       }
 
-      input:checked + .slider::before {
-        transform: translateX(30px);
+      .circle {
+        position: absolute;
+        content: "";
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 20px;
+        left: 0.3em;
+        bottom: 0.3em;
+        background-color: #fff000;
+        transform: rotate(360deg) translateX(0);
+        transition: 0.4s;
       }
 
-      input:checked + .slider {
-        background-color: #007bff;
+      .switch input:checked + .slider .circle {
+        transform: rotate(0deg) translateX(1.5em) !important;
+      }
+
+      .switch input:checked + .slider .circle .shine {
+        transform: translate(0%, 0%) !important;
+      }
+
+      .switch input:checked + .slider .circle .moon {
+        left: -10%;
+        opacity: 1;
+        transform: translateY(-60%);
+      }
+
+      .moon {
+        position: absolute;
+        left: -100%;
+        top: 50%;
+        opacity: 0;
+        background-color: #333;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 99999px;
+        transform: translateY(-50%);
+        transition: all 0.4s;
+      }
+
+      .shine {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0.25rem;
+        height: 0.25rem;
+        background-color: #fff000;
+        border-radius: 1rem;
+        transition: all 0.4s;
+      }
+
+      .shine-1 {
+        transform: translate(-50%, -375%);
+      }
+      .shine-2 {
+        transform: translate(175%, -275%);
+      }
+      .shine-3 {
+        transform: translate(275%, -50%);
+      }
+      .shine-4 {
+        transform: translate(175%, 175%);
+      }
+      .shine-5 {
+        transform: translate(-50%, 275%);
+      }
+      .shine-6 {
+        transform: translate(-275%, 175%);
+      }
+      .shine-7 {
+        transform: translate(-375%, -50%);
+      }
+      .shine-8 {
+        transform: translate(-275%, -275%);
+      }
+
+      body.dark-mode h1,
+      body.dark-mode h2,
+      body.dark-mode h3,
+      body.dark-mode h4,
+      body.dark-mode h5,
+      body.dark-mode h6,
+      body.dark-mode p,
+      body.dark-mode a,
+      body.dark-mode label,
+      body.dark-mode .hover-text {
+        color: #fefefe;
       }
     </style>
   </head>
   <body>
     <!-- Dark Mode Toggle Switch -->
-    <label class="switch">
-      <input type="checkbox" id="theme-toggle" />
-      <span class="slider">
-        <span class="circle">
-          <span class="shine shine-1"></span>
-          <span class="shine shine-2"></span>
-          <span class="shine shine-3"></span>
-          <span class="shine shine-4"></span>
-          <span class="shine shine-5"></span>
-          <span class="shine shine-6"></span>
-          <span class="shine shine-7"></span>
-          <span class="shine shine-8"></span>
-          <span class="moon"></span>
+    <header>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider">
+          <span class="circle">
+            <span class="shine shine-1"></span>
+            <span class="shine shine-2"></span>
+            <span class="shine shine-3"></span>
+            <span class="shine shine-4"></span>
+            <span class="shine shine-5"></span>
+            <span class="shine shine-6"></span>
+            <span class="shine shine-7"></span>
+            <span class="shine shine-8"></span>
+            <span class="moon"></span>
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </header>
 
     <div class="container mt-5">
       <h1 class="text-center">Diabetes Result</h1>
@@ -148,34 +319,31 @@
       </div>
     </div>
 
-    <!-- JavaScript for Toggle Functionality and Local Storage -->
     <script>
-      // Reference to the theme toggle switch
-      const toggleSwitch = document.getElementById("theme-toggle");
-
-      // Function to apply dark mode
-      function applyDarkMode(isDark) {
-        document.body.classList.toggle("dark-mode", isDark);
-        document
-          .querySelector(".container")
-          .classList.toggle("dark-mode", isDark);
-      }
-
-      // Function to toggle dark mode based on the switch state
+      const toggleSwitch = document.querySelector(
+        '.switch input[type="checkbox"]'
+      );
       function toggleDarkMode() {
-        const isDark = toggleSwitch.checked;
-        applyDarkMode(isDark);
-        localStorage.setItem("theme", isDark ? "dark" : "light");
+        if (toggleSwitch.checked) {
+          document.body.classList.add("dark-mode"); // Add dark mode class
+          localStorage.setItem("theme", "dark"); // Save preference in local storage
+        } else {
+          document.body.classList.remove("dark-mode"); // Remove dark mode class
+          localStorage.setItem("theme", "light"); // Save preference in local storage
+        }
       }
+      // Function to toggle dark mode
 
       // Event listener for the toggle switch
       toggleSwitch.addEventListener("change", toggleDarkMode);
 
       // Load theme from local storage on page load
       window.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("theme") === "dark";
-        toggleSwitch.checked = savedTheme;
-        applyDarkMode(savedTheme);
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          toggleSwitch.checked = true;
+          document.body.classList.add("dark-mode");
+        }
       });
     </script>
   </body>

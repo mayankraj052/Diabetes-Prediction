@@ -1,4 +1,3 @@
-/* Basic Reset and Body Styling */
 body {
   background-color: #ffffff;
   font-family: Arial, sans-serif;
@@ -8,7 +7,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Container Styling with Gradient Border */
 .container {
   background-color: #fff;
   color: #333;
@@ -18,14 +16,20 @@ body {
   margin-top: 50px;
   max-width: 660px;
   position: relative;
-  border: 7px solid transparent; /* Border space */
+  /* border: 7px solid transparent; */ /* Create space for the border */
   background-clip: padding-box;
-  border:3px solid #e0e0e0;
+  border: 3px solid #e0e0e0;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Button Styling with Hover Effect */
+/* button styling */
 .button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
   --border-right: 6px;
   --text-stroke-color: rgba(227, 16, 16, 0.717);
   --animation-color: #37ff8b;
@@ -33,29 +37,35 @@ body {
   letter-spacing: 3px;
   text-decoration: none;
   font-size: var(--fs-size);
-  font-family: Arial, sans-serif;
+  font-family: "Arial";
   position: relative;
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);
 }
-.button:hover .hover-text {
-  width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color));
-}
+/* this is the text, when you hover on button */
 .hover-text {
   position: absolute;
+  box-sizing: border-box;
   content: attr(data-text);
   color: var(--animation-color);
-  width: 0;
+  width: 0%;
   inset: 0;
   border-right: var(--border-right) solid var(--animation-color);
   overflow: hidden;
   transition: 0.2s;
   -webkit-text-stroke: 1px var(--animation-color);
 }
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
 
-/* Primary Button Styling */
+.form-group label {
+  font-weight: bold;
+}
+
 .btn-primary {
   font-size: 1.2rem;
   padding: 1rem 2.5rem;
@@ -69,16 +79,23 @@ body {
   font-weight: 700;
   transition: 0.6s;
   box-shadow: 0px 0px 30px #1f4c65;
+  /* -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
 }
+
 .btn-primary:active {
-  transform: scale(0.92);
+  scale: 0.92;
 }
+
 .btn-primary:hover {
-  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    rgba(2, 29, 78, 0.681) 0%,
+    rgba(31, 215, 232, 0.873) 60%
+  );
   color: rgb(4, 4, 38);
 }
 
-/* Responsive Font Sizes */
 @media (max-width: 576px) {
   h1 {
     font-size: 2rem;
@@ -88,38 +105,72 @@ body {
   }
 }
 
-/* Dark Mode Styling */
+@media (min-width: 768px) {
+  .ezy__faq3_AcAdfrU9 {
+    padding: 100px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .ezy__faq3_AcAdfrU9-heading {
+    font-size: 45px;
+    line-height: 45px;
+  }
+}
+
 body.dark-mode {
   background-color: #181818;
-  color: #ffffff;
+  color: #f1f1f1;
 }
+
 body.dark-mode .container {
   background-color: #333;
   color: #ffffff;
-}
-body.dark-mode .btn-primary {
-  background-color: #555;
-  color: #ffffff;
-}
-
-/* Ensuring all Text and Links are White in Dark Mode */
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode p,
-body.dark-mode a,
-body.dark-mode label,
-body.dark-mode .hover-text {
-  color: #ffffff;
+  border: 4px solid;
+  border-image: linear-gradient(
+      45deg,
+      #ff0000,
+      #ffa500,
+      #ffff00,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #ee82ee
+    )
+    1;
+  animation: borderAnimation 0.7s linear infinite;
 }
 
-/* Dark Mode Toggle Switch */
+@keyframes borderAnimation {
+  0% {
+    border-image-source: linear-gradient(
+      45deg,
+      #ff0000,
+      #ffa500,
+      #ffff00,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #ee82ee
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      405deg,
+      #ee82ee,
+      #4b0082,
+      #0000ff,
+      #00ff00,
+      #ffff00,
+      #ffa500,
+      #ff0000
+    );
+  }
+}
+
 .switch {
   font-size: 17px;
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 1000;
@@ -127,11 +178,13 @@ body.dark-mode .hover-text {
   width: 3.5em;
   height: 2em;
 }
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -144,17 +197,287 @@ body.dark-mode .hover-text {
   border-radius: 30px;
   overflow: hidden;
 }
+
 .circle {
   position: absolute;
+  content: "";
   height: 1.4em;
   width: 1.4em;
   border-radius: 20px;
   left: 0.3em;
   bottom: 0.3em;
   background-color: #fff000;
-  transform: translateX(0);
+  transform: rotate(360deg) translateX(0);
   transition: 0.4s;
 }
+
 .switch input:checked + .slider .circle {
-  transform: translateX(1.5em);
+  transform: rotate(0deg) translateX(1.5em) !important;
+}
+
+.switch input:checked + .slider .circle .shine {
+  transform: translate(0%, 0%) !important;
+}
+
+.switch input:checked + .slider .circle .moon {
+  left: -10%;
+  opacity: 1;
+  transform: translateY(-60%);
+}
+
+.moon {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  opacity: 0;
+  background-color: #333;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 99999px;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+}
+
+.shine {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #fff000;
+  border-radius: 1rem;
+  transition: all 0.4s;
+}
+
+.shine-1 {
+  transform: translate(-50%, -375%);
+}
+.shine-2 {
+  transform: translate(175%, -275%);
+}
+.shine-3 {
+  transform: translate(275%, -50%);
+}
+.shine-4 {
+  transform: translate(175%, 175%);
+}
+.shine-5 {
+  transform: translate(-50%, 275%);
+}
+.shine-6 {
+  transform: translate(-275%, 175%);
+}
+.shine-7 {
+  transform: translate(-375%, -50%);
+}
+.shine-8 {
+  transform: translate(-275%, -275%);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode label,
+body.dark-mode .hover-text {
+  color: #fefefe;
+}
+
+footer {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* From Uiverse.io by joe-watson-sbf */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.vertical-credits {
+  writing-mode: vertical-rl; /* Rotates the text vertically */
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: coral; /* Adjust color as needed */
+  position: absolute;
+  left: -12px;
+  bottom: 65px;
+  letter-spacing: 7px;
+  animation: glitter 1.5s infinite;
+}
+
+@keyframes glitter {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(190, 181, 181, 0.3), 0 0 15px rgba(151, 145, 145, 0.2),
+      0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  25% {
+    text-shadow: 0 0 5px rgba(140, 138, 138, 0.3), 0 0 10px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(237, 232, 232, 0.4), 0 0 10px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(220, 187, 187, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    text-shadow: 0 0 5px rgba(232, 225, 225, 0.3), 0 0 10px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(223, 200, 200, 0.4), 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(244, 242, 242, 0.2), 0 0 10px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(227, 196, 196, 0.4), 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Laptop and larger screens */
+  .cards-container {
+    gap: 70px; /* Increased spacing for laptops and larger */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet view */
+  .cards-container {
+    gap: 30px; /* Reduced spacing for tablets */
+  }
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  gap: 300px; /* Default spacing for mobile view */
+}
+.cards-container .flip-card:nth-child(1) {
+  margin-left: 40px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid coral;
+  border-radius: 1rem;
+}
+
+.flip-card:nth-child(1) .flip-card-front {
+  background: linear-gradient(120deg, lightcoral 60%, crimson 40%);
+}
+
+.flip-card:nth-child(2) .flip-card-front {
+  background: linear-gradient(120deg, lightgreen 60%, seagreen 40%);
+}
+
+.flip-card:nth-child(3) .flip-card-front {
+  background: linear-gradient(120deg, lightblue 60%, steelblue 40%);
+}
+
+.flip-card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    120deg,
+    rgb(255, 174, 145) 30%,
+    coral 88%,
+    bisque 40%,
+    rgb(255, 185, 160) 78%
+  );
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* .cards-container {
+  display: flex;
+  gap: 400px; 
+} */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fff; /* Replace with your preferred color or image */
+  background-image: url("path-to-profile-picture.jpg"); /* Add profile image here */
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+  display: flex;
+  gap: 13px;
+}
+
+.social-icons a img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 600px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
